@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Root Variables */
+:root {
+  --primary: #1E3A8A;
+  --primary-light: #3B82F6;
+  --secondary: #10B981;
+  --accent: #06B6D4;
+  --white: #FFFFFF;
+  --black: #000000;
+  --text-dark: #1F2937;
+  --text-light: #6B7280;
+  --bg-light: #F9FAFB;
+  --bg-lighter: #F3F4F6;
+  --border: #E5E7EB;
+}
+
+[data-theme='dark'] {
+  --primary: #1E3A8A;
+  --text-dark: #F3F4F6;
+  --text-light: #D1D5DB;
+  --bg-light: #111827;
+  --bg-lighter: #1F2937;
+  --border: #374151;
+}
+
+/* Global Styles */
+* {
+  @apply transition-colors duration-200;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white dark:bg-slate-950 text-text-dark dark:text-text-light font-inter;
+}
+
+/* Typography */
+h1 {
+  @apply text-4xl font-poppins font-bold;
+}
+
+h2 {
+  @apply text-3xl font-poppins font-bold;
+}
+
+h3 {
+  @apply text-2xl font-poppins font-semibold;
+}
+
+h4 {
+  @apply text-xl font-poppins font-semibold;
+}
+
+h5 {
+  @apply text-lg font-poppins font-semibold;
+}
+
+h6 {
+  @apply text-base font-poppins font-semibold;
+}
+
+p {
+  @apply text-base leading-relaxed;
+}
+
+/* Links */
+a {
+  @apply text-primary hover:text-primary-light transition-colors;
+}
+
+/* Forms */
+input,
+textarea,
+select {
+  @apply rounded-lg border border-border bg-white dark:bg-slate-900 px-4 py-2.5 text-text-dark dark:text-text-light focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent;
+}
+
+input::placeholder,
+textarea::placeholder {
+  @apply text-text-light;
+}
+
+/* Glassmorphism Effect */
+.glass {
+  @apply bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-white/20 dark:border-slate-700/20;
+}
+
+.glass-lg {
+  @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-white/30 dark:border-slate-700/30;
+}
+
+/* Soft Shadows */
+.shadow-soft {
+  @apply shadow-[0_8px_16px_rgba(30,58,138,0.08)];
+}
+
+.shadow-soft-lg {
+  @apply shadow-[0_12px_24px_rgba(30,58,138,0.12)];
+}
+
+/* Cards */
+.card {
+  @apply bg-white dark:bg-slate-900 rounded-lg shadow-soft p-6 border border-border dark:border-slate-700;
+}
+
+.card-glass {
+  @apply glass rounded-lg shadow-soft p-6;
+}
+
+/* Buttons */
+.btn {
+  @apply inline-flex items-center justify-center px-4 py-2.5 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary;
+}
+
+.btn-primary {
+  @apply btn bg-primary text-white hover:bg-primary-light shadow-soft;
+}
+
+.btn-secondary {
+  @apply btn bg-emerald text-white hover:bg-emerald-600 shadow-soft;
+}
+
+.btn-outline {
+  @apply btn border-2 border-primary text-primary hover:bg-primary hover:text-white;
+}
+
+.btn-ghost {
+  @apply btn hover:bg-bg-light dark:hover:bg-slate-800;
+}
+
+.btn-sm {
+  @apply px-3 py-1.5 text-sm;
+}
+
+.btn-lg {
+  @apply px-6 py-3 text-lg;
+}
+
+/* Badges */
+.badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.badge-primary {
+  @apply badge bg-primary/10 text-primary;
+}
+
+.badge-success {
+  @apply badge bg-emerald/10 text-emerald-600;
+}
+
+.badge-warning {
+  @apply badge bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-200;
+}
+
+.badge-danger {
+  @apply badge bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-200;
+}
+
+/* Skeleton Loading */
+.skeleton {
+  @apply animate-pulse bg-gradient-to-r from-bg-light to-bg-lighter dark:from-slate-800 dark:to-slate-700 rounded-lg;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border dark:bg-slate-700 rounded-full hover:bg-text-light dark:hover:bg-slate-600;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Utilities */
+.truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.truncate-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
