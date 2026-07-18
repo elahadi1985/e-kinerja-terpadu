@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('status')->default('draft');
             $table->string('verifikasi_status')->default('pending');
             $table->string('approval_status')->default('pending');
-            $table->foreignId('eviden_file_id')->nullable()->constrained('dokumen')->onDelete('set null');
             $table->text('catatan')->nullable();
             $table->foreignId('created_by')->constrained('users');
             $table->foreignId('verified_by')->nullable()->constrained('users')->onDelete('set null');
